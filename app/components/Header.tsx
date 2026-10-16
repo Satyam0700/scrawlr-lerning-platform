@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { Bell } from "lucide-react";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 export function Header() {
   return (
@@ -57,8 +59,8 @@ export function Header() {
           </nav>
         </div>
 
-        {/* Right: Notification Bell & Profile Avatar */}
-        <div className="flex items-center gap-4 sm:gap-5">
+        {/* Right: Notification Bell & Profile Avatar / Auth */}
+        <div className="flex items-center gap-3 sm:gap-4">
           <button
             type="button"
             aria-label="Notifications"
@@ -67,16 +69,42 @@ export function Header() {
             <Bell className="w-5 h-5 stroke-[1.8]" />
           </button>
 
-          {/* User Avatar */}
-          <div className="relative">
-            {/* Styled user avatar matching design */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
-              alt="User avatar"
-              className="w-9 h-9 rounded-full object-cover ring-2 ring-neutral-200/60 shadow-sm"
-            />
-          </div>
+          <Suspense
+            fallback={
+              <div className="w-9 h-9 rounded-full bg-neutral-100 animate-pulse" />
+            }
+          >
+            <Show when="signed-out">
+              <div className="flex items-center gap-2">
+                <SignInButton mode="modal">
+                  <button
+                    type="button"
+                    className="btn btn-tertiary h-9 text-xs sm:text-sm font-medium"
+                  >
+                    Sign in
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <button
+                    type="button"
+                    className="btn btn-primary h-9 text-xs sm:text-sm px-3.5"
+                  >
+                    Sign up
+                  </button>
+                </SignUpButton>
+              </div>
+            </Show>
+
+            <Show when="signed-in">
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "w-9 h-9 ring-2 ring-neutral-200/60 shadow-sm",
+                  },
+                }}
+              />
+            </Show>
+          </Suspense>
         </div>
       </div>
     </header>
