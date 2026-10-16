@@ -1,0 +1,92 @@
+import React from "react";
+import Link from "next/link";
+import { Clock, FileText } from "lucide-react";
+
+export interface CourseCardProps {
+  slug: string;
+  title: string;
+  description: string;
+  level: "Beginner" | "Intermediate" | "Advanced";
+  duration: string;
+  modulesCount: number;
+  icon: React.ReactNode;
+}
+
+export function CourseCard({
+  slug,
+  title,
+  description,
+  level,
+  duration,
+  modulesCount,
+  icon,
+}: CourseCardProps) {
+  return (
+    <Link
+      href={`/courses/${slug}`}
+      className="group bg-white border border-neutral-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all duration-200"
+    >
+      <div>
+        {/* Brand / Topic Logo */}
+        <div className="w-14 h-14 flex items-center justify-start">
+          {icon}
+        </div>
+
+        {/* Title */}
+        <h3 className="font-display font-bold text-xl text-neutral-900 mt-6 group-hover:text-primary-500 transition-colors">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="font-sans text-neutral-500 text-sm leading-relaxed mt-2.5">
+          {description}
+        </p>
+      </div>
+
+      {/* Meta Footer */}
+      <div className="border-t border-neutral-100 pt-4 mt-8 flex items-center justify-between text-xs text-neutral-500 font-sans">
+        {/* Level */}
+        <div className="flex items-center gap-1.5">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 16 16"
+            fill="none"
+            className="text-neutral-500 flex-shrink-0"
+          >
+            <rect x="2" y="10" width="2.5" height="4" rx="0.5" fill="currentColor" />
+            <rect
+              x="6.75"
+              y="7"
+              width="2.5"
+              height="7"
+              rx="0.5"
+              fill={level === "Beginner" ? "#CBD5E1" : "currentColor"}
+            />
+            <rect
+              x="11.5"
+              y="4"
+              width="2.5"
+              height="10"
+              rx="0.5"
+              fill={level === "Advanced" ? "currentColor" : "#CBD5E1"}
+            />
+          </svg>
+          <span>{level}</span>
+        </div>
+
+        {/* Duration */}
+        <div className="flex items-center gap-1.5">
+          <Clock className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+          <span>{duration}</span>
+        </div>
+
+        {/* Module Count */}
+        <div className="flex items-center gap-1.5">
+          <FileText className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+          <span>{modulesCount} modules</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
