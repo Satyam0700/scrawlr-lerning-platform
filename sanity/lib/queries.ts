@@ -124,7 +124,10 @@ export const courseBySlugQuery = defineQuery(`
  * Query to fetch a lesson by slug, including reverse-lookup of its parent course and modules.
  */
 export const lessonBySlugQuery = defineQuery(`
-  *[_type == "lesson" && slug.current == $slug][0] {
+  *[_type == "lesson" && (
+    slug.current == $slug ||
+    ($slug in ["data-fetching-and-caching", "data-fetching-caching"] && slug.current == "nextjs-app-router-in-depth-fetching-in-server-components")
+  )][0] {
     _id,
     title,
     "slug": slug.current,
@@ -147,6 +150,8 @@ export const lessonBySlugQuery = defineQuery(`
       _id,
       title,
       "slug": slug.current,
+      level,
+      coverImage,
       instructor->{
         _id,
         name,
@@ -158,15 +163,26 @@ export const lessonBySlugQuery = defineQuery(`
         _key,
         title,
         summary,
+        "duration": math::sum(lessons[]->duration),
         lessons[]->{
           _id,
           title,
           "slug": slug.current,
           duration,
-          freePreview
+          freePreview,
+          studentCount
         }
       }
     }
+  }
+`)
+
+/**
+ * Query to fetch all lesson slugs for static parameter generation.
+ */
+export const allLessonsSlugsQuery = defineQuery(`
+  *[_type == "lesson"]{
+    "slug": slug.current
   }
 `)
 

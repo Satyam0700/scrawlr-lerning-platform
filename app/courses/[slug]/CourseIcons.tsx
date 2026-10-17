@@ -13,7 +13,7 @@ export function NextjsCoverCard({ className = "w-full aspect-square" }: { classN
     >
       {/* Subtle internal gradient highlight */}
       <div className="absolute inset-0 bg-radial from-neutral-800/30 via-transparent to-transparent pointer-events-none" />
-      
+
       {/* Next.js N Logo mark with diagonal slit and reflection */}
       <svg
         viewBox="0 0 180 180"
@@ -72,24 +72,19 @@ export function NextjsCoverCard({ className = "w-full aspect-square" }: { classN
 
 /**
  * Universal Course Cover Display:
- * If Next.js topic -> renders iconic NextjsCoverCard matching design reference.
- * Otherwise -> renders Sanity cover image or fallback topic badge.
+
+* Renders the course's seeded Sanity cover image.
+ * Falls back to topic logo / title card only if coverImage is not authored.
  */
 export function CourseCoverArtwork({
   slug,
   coverImage,
   title,
 }: {
-  slug: string;
+  slug?: string;
   coverImage?: SanityImage;
   title: string;
 }) {
-  const isNextjs = slug.includes("nextjs");
-
-  if (isNextjs) {
-    return <NextjsCoverCard />;
-  }
-
   if (coverImage) {
     const imageUrl = urlFor(coverImage).width(800).height(800).fit("crop").url();
     return (
@@ -104,6 +99,10 @@ export function CourseCoverArtwork({
         />
       </div>
     );
+  }
+
+  if (slug && slug.includes("nextjs")) {
+    return <NextjsCoverCard />;
   }
 
   return (
