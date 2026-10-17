@@ -102,12 +102,9 @@ export interface LessonDetailData {
     _id: string
     title: string
     slug: string
-    instructor: Instructor
-    modules: {
-      _key: string
-      title: string
-      summary?: string
-      lessons: LessonSummary[]
-    }[]
+    level?: 'Beginner' | 'Intermediate' | 'Advanced' | string
+    coverImage?: SanityImage
+    instructor?: Instructor
+    modules: ModuleData[]
   }
 }

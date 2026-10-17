@@ -6,6 +6,7 @@ import {
   featuredCoursesQuery,
   courseBySlugQuery,
   lessonBySlugQuery,
+  allLessonsSlugsQuery,
   allInstructorsQuery,
   instructorBySlugQuery,
   allCategoriesQuery,
@@ -61,6 +62,16 @@ export async function getLessonBySlug(slug: string): Promise<LessonDetailData | 
     query: lessonBySlugQuery,
     params: { slug },
     tags: [`lesson:${slug}`],
+  })
+}
+
+/**
+ * Retrieve all lesson slugs for static generation.
+ */
+export async function getAllLessonSlugs(): Promise<{ slug: string }[]> {
+  return serverSanityFetch<{ slug: string }[]>({
+    query: allLessonsSlugsQuery,
+    tags: ['lesson'],
   })
 }
 

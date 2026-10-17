@@ -20,7 +20,8 @@ export const serverClient = createClient({
 
 /**
  * Type-safe server-side fetch wrapper.
- * Provides caching and Next.js revalidation tag support.
+ * In development, disables aggressive caching so updates in Sanity Studio reflect immediately.
+ * In production, supports time-based revalidation (default 60s) and tags.
  */
 export async function serverSanityFetch<T>({
   query,
@@ -33,10 +34,13 @@ export async function serverSanityFetch<T>({
   revalidate?: number | false
   tags?: string[]
 }): Promise<T> {
+  const isDev = process.env.NODE_ENV === 'development'
+
   return serverClient.fetch<T>(query, params, {
     next: {
-      revalidate: tags.length ? false : revalidate,
+      revalidate: isDev ? 0 : (revalidate === false ? false : revalidate),
       tags,
     },
+    ...(isDev ? { cache: 'no-store' as const } : {}),
   })
 }
