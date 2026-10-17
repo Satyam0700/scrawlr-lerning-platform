@@ -6,14 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "studio:dev": "npm --prefix studio run dev",
+    "studio:build": "npm --prefix studio run build",
+    "studio:typegen": "npm --prefix studio run typegen"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.16",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.31.2",
     "lucide-react": "^1.58.0",
     "next": "16.4.2",
+    "next-sanity": "^13.3.4",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sanity": "^5.31.2",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
