@@ -1,0 +1,17 @@
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { schema } from './schemaTypes'
+import { structure } from './structure'
+
+export default defineConfig({
+  name: 'default',
+  title: 'Vertex Studio',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'g8whmf61',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+  plugins: [
+    structureTool({ structure }),
+    visionTool({ defaultApiVersion: '2026-10-16' }),
+  ],
+  schema,
+})
