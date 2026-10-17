@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, FileText } from "lucide-react";
+import { urlFor } from "@/sanity/lib/image";
+import type { SanityImage } from "@/sanity/lib/types";
 
 export interface CourseCardProps {
   slug: string;
@@ -9,7 +12,8 @@ export interface CourseCardProps {
   level: "Beginner" | "Intermediate" | "Advanced";
   duration: string;
   modulesCount: number;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  coverImage?: SanityImage;
 }
 
 export function CourseCard({
@@ -20,6 +24,7 @@ export function CourseCard({
   duration,
   modulesCount,
   icon,
+  coverImage,
 }: CourseCardProps) {
   return (
     <Link
@@ -27,9 +32,21 @@ export function CourseCard({
       className="group bg-white border border-neutral-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all duration-200"
     >
       <div>
-        {/* Brand / Topic Logo */}
+        {/* Brand / Topic Logo or Cover Image */}
         <div className="w-14 h-14 flex items-center justify-start">
-          {icon}
+          {coverImage ? (
+            <div className="w-14 h-14 rounded-xl overflow-hidden border border-neutral-200/80 bg-neutral-900 shadow-2xs relative flex-shrink-0">
+              <Image
+                src={urlFor(coverImage).width(112).height(112).fit("crop").url()}
+                alt={coverImage.alt || title}
+                width={56}
+                height={56}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            icon
+          )}
         </div>
 
         {/* Title */}

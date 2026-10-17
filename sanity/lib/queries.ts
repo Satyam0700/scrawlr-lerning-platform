@@ -70,7 +70,7 @@ export const featuredCoursesQuery = defineQuery(`
  * Expands modules and ordered lesson references.
  */
 export const courseBySlugQuery = defineQuery(`
-  *[_type == "course" && slug.current == $slug][0] {
+  *[_type == "course" && (slug.current == $slug || ($slug == "nextjs-for-production" && slug.current == "nextjs-app-router-in-depth"))][0] {
     _id,
     title,
     "slug": slug.current,
@@ -104,6 +104,7 @@ export const courseBySlugQuery = defineQuery(`
       _key,
       title,
       summary,
+      "duration": math::sum(lessons[]->duration),
       lessons[]->{
         _id,
         title,

@@ -4,6 +4,8 @@ import { AllCoursesSection } from "./components/AllCoursesSection";
 import { WeeklyUpdateBanner } from "./components/WeeklyUpdateBanner";
 import { BottomGraphic } from "./components/BottomGraphic";
 
+export const instant = false;
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-neutral-50/40 text-neutral-900 selection:bg-primary-100 selection:text-primary-500">
