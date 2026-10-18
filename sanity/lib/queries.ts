@@ -245,3 +245,36 @@ export const allCategoriesQuery = defineQuery(`
     "coursesCount": count(*[_type == "course" && references(^._id)])
   }
 `)
+
+/**
+ * Query to fetch all courses with modules and lessons for grounded search matching.
+ */
+export const searchCoursesAndLessonsQuery = defineQuery(`
+  *[_type == "course"] | order(_createdAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    _createdAt,
+    coverImage,
+    modules[]{
+      _key,
+      title,
+      summary,
+      duration,
+      lessons[]->{
+        _id,
+        title,
+        "slug": slug.current,
+        duration,
+        keyPoints,
+        thumbnail,
+        videoUrl,
+        notes,
+        studentCount,
+        _createdAt
+      }
+    }
+  }
+`)
+

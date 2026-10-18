@@ -36,17 +36,22 @@ export function HeroSection() {
 
       {/* Search Input Bar */}
       <div className="w-full max-w-2xl mt-10">
-        <div className="relative flex items-center w-full bg-white border border-neutral-200 rounded-xl px-4 h-14 shadow-sm hover:border-neutral-300 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-400/20 transition-all">
+        <form
+          action="/search"
+          method="GET"
+          className="relative flex items-center w-full bg-white border border-neutral-200 rounded-xl px-4 h-14 shadow-sm hover:border-neutral-300 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-400/20 transition-all"
+        >
           <Search className="w-5 h-5 text-neutral-400 flex-shrink-0 mr-3" />
           <input
             type="text"
+            name="q"
             placeholder="Ask anything about your learning..."
             className="w-full bg-transparent border-none text-neutral-900 placeholder:text-neutral-400 text-sm sm:text-base focus:outline-none"
           />
           <kbd className="hidden sm:inline-flex items-center justify-center px-2 py-0.5 text-xs font-medium text-neutral-500 bg-neutral-100 border border-neutral-200/90 rounded text-[11px] select-none">
             ⌘ K
           </kbd>
-        </div>
+        </form>
       </div>
     </section>
   );
