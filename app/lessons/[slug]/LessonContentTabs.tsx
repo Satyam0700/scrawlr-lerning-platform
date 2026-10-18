@@ -47,11 +47,10 @@ export function LessonContentTabs({
         <button
           type="button"
           onClick={() => setActiveTab("content")}
-          className={`pb-3.5 text-base font-medium transition-all relative ${
-            activeTab === "content"
-              ? "text-primary-500 font-semibold"
-              : "text-neutral-500 hover:text-neutral-800"
-          }`}
+          className={`pb-3.5 text-base font-medium transition-all relative ${activeTab === "content"
+            ? "text-primary-500 font-semibold"
+            : "text-neutral-500 hover:text-neutral-800"
+            }`}
         >
           Lesson Content
           {activeTab === "content" && (
@@ -62,11 +61,10 @@ export function LessonContentTabs({
         <button
           type="button"
           onClick={() => setActiveTab("notes")}
-          className={`pb-3.5 text-base font-medium transition-all relative ${
-            activeTab === "notes"
-              ? "text-primary-500 font-semibold"
-              : "text-neutral-500 hover:text-neutral-800"
-          }`}
+          className={`pb-3.5 text-base font-medium transition-all relative ${activeTab === "notes"
+            ? "text-primary-500 font-semibold"
+            : "text-neutral-500 hover:text-neutral-800"
+            }`}
         >
           Notes
           {activeTab === "notes" && (
@@ -146,7 +144,7 @@ export function LessonContentTabs({
             </div>
             <textarea
               readOnly
-              value={`Notes for this lesson:\n\n• Key takeaway: Server components execute on server and ship zero javascript.\n• Revalidation tag syntax: revalidateTag('tag-name') triggers on-demand cache purge.\n• Streaming with Suspense isolates asynchronous data fetching bottlenecks.`}
+              value={`This section is under development:\n\n• coming soon.`}
               rows={6}
               className="w-full p-4 rounded-xl border border-neutral-200/80 bg-neutral-50/50 text-neutral-700 text-sm font-sans focus:outline-none resize-none"
             />

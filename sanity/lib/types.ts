@@ -108,3 +108,34 @@ export interface LessonDetailData {
     modules: ModuleData[]
   }
 }
+
+export type SearchResultType = 'video' | 'lesson';
+
+export interface SearchResultItem {
+  id: string;
+  type: SearchResultType;
+  title: string;
+  description: string;
+  slug: string;
+  courseTitle: string;
+  courseSlug: string;
+  moduleTitle: string;
+  moduleNumber: number;
+  lessonNumber?: number;
+  duration?: number;
+  durationFormatted?: string;
+  startSeconds?: number;
+  startFormatted?: string;
+  thumbnailUrl?: string;
+  keyPoints?: string[];
+  relevanceScore?: number;
+  createdAt?: string;
+}
+
+export interface SearchResponseData {
+  query: string;
+  results: SearchResultItem[];
+  totalCount: number;
+  coursesCount: number;
+}
+

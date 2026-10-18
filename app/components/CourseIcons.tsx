@@ -92,3 +92,98 @@ export function TypeScriptIcon({ className = "w-14 h-14" }: { className?: string
     </div>
   );
 }
+
+export function ReactIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <div
+      className={`flex items-center justify-center ${className}`}
+      aria-label="React"
+    >
+      <svg
+        viewBox="-11.5 -10.23174 23 20.46348"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full text-[#087ea4]"
+      >
+        <circle cx="0" cy="0" r="2.05" fill="#00D8FF" />
+        <g stroke="#00D8FF" strokeWidth="1" fill="none">
+          <ellipse rx="11" ry="4.2" />
+          <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+          <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+export function NodejsIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <div
+      className={`flex items-center justify-center ${className}`}
+      aria-label="Node.js"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full"
+      >
+        <path
+          d="M16 2.5L28 9.4V23.2L16 30.1L4 23.2V9.4L16 2.5Z"
+          fill="#5FA04E"
+          stroke="#417E38"
+          strokeWidth="1.5"
+        />
+        <text
+          x="16"
+          y="20"
+          textAnchor="middle"
+          fill="white"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="sans-serif"
+        >
+          JS
+        </text>
+      </svg>
+    </div>
+  );
+}
+
+export function JavaScriptIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <div
+      className={`bg-[#F7DF1E] rounded-md flex items-center justify-center shadow-xs ${className}`}
+      aria-label="JavaScript"
+    >
+      <span className="font-sans font-bold text-black text-[13px] leading-none select-none tracking-tighter">
+        JS
+      </span>
+    </div>
+  );
+}
+
+export function getCourseBrandIcon(courseTitleOrSlug?: string, sizeClass = "w-5 h-5") {
+  const normalized = (courseTitleOrSlug || "").toLowerCase();
+  if (normalized.includes("next")) {
+    return <NextjsIcon className={sizeClass} />;
+  }
+  if (normalized.includes("react")) {
+    return <ReactIcon className={sizeClass} />;
+  }
+  if (normalized.includes("node") || normalized.includes("backend")) {
+    return <NodejsIcon className={sizeClass} />;
+  }
+  if (normalized.includes("typescript")) {
+    return <TypeScriptIcon className={sizeClass} />;
+  }
+  if (normalized.includes("docker") || normalized.includes("devops") || normalized.includes("kubernetes")) {
+    return <DockerIcon className={sizeClass} />;
+  }
+  if (normalized.includes("javascript") || normalized.includes("js")) {
+    return <JavaScriptIcon className={sizeClass} />;
+  }
+  // Default to Next.js
+  return <NextjsIcon className={sizeClass} />;
+}
+

@@ -13,3 +13,12 @@ export function formatDuration(seconds?: number): string {
   }
   return `${minutes}m`
 }
+
+export function formatTimestamp(seconds?: number): string {
+  if (!seconds || seconds <= 0) return '00:00'
+  const mins = Math.floor(seconds / 60)
+  const secs = Math.floor(seconds % 60)
+  const pad = (n: number) => n.toString().padStart(2, '0')
+  return `${pad(mins)}:${pad(secs)}`
+}
+
