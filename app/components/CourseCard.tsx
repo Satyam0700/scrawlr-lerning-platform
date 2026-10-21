@@ -29,7 +29,7 @@ export function CourseCard({
   return (
     <Link
       href={`/courses/${slug}`}
-      className="group bg-white border border-neutral-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all duration-200"
+      className="group bg-white border border-neutral-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 active:scale-[0.985] active:bg-neutral-50/60 active:shadow-xs transition-all duration-150 cursor-pointer select-none"
     >
       <div>
         {/* Brand / Topic Logo or Cover Image */}

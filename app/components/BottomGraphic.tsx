@@ -19,18 +19,18 @@ export function BottomGraphic() {
             style={{
               height: `${h}%`,
               background:
-                "linear-gradient(to top, rgba(249, 115, 22, 0.45) 0%, rgba(251, 146, 60, 0.25) 50%, rgba(253, 186, 116, 0.05) 90%, transparent 100%)",
+                "linear-gradient(to top, rgba(37, 99, 235, 0.40) 0%, rgba(96, 165, 250, 0.22) 50%, rgba(147, 197, 253, 0.05) 90%, transparent 100%)",
             }}
           />
         ))}
       </div>
 
-      {/* Ambient bottom warm glow overlay */}
+      {/* Ambient bottom cool blue glow overlay */}
       <div
         className="absolute inset-x-0 bottom-0 h-24"
         style={{
           background:
-            "linear-gradient(to top, rgba(249, 115, 22, 0.2) 0%, transparent 100%)",
+            "linear-gradient(to top, rgba(37, 99, 235, 0.18) 0%, transparent 100%)",
         }}
       />
     </div>

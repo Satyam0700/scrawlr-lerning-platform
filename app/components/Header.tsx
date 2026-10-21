@@ -10,7 +10,7 @@ export function Header() {
         {/* Left: Brand & Navigation */}
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2.5 group">
-            {/* Vertex Logo Mark: Geometric Inverted Triangle */}
+            {/* Scrawlr Logo Mark: Stylized Modern Dynamic S Ribbon */}
             <div className="w-7 h-7 flex items-center justify-center transition-transform group-hover:scale-105">
               <svg
                 width="28"
@@ -18,28 +18,34 @@ export function Header() {
                 viewBox="0 0 28 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full"
+                className="w-full h-full shadow-xs rounded-[7px]"
               >
-                {/* Left facet */}
+                <rect width="28" height="28" rx="7" fill="url(#scrawlr-brand-grad)" />
                 <path
-                  d="M14 24L3 6H10.5L14 13L17.5 6H25L14 24Z"
-                  fill="#F97316"
+                  d="M18.5 9.8C18.5 9.8 16.8 8 13.8 8C11 8 9.2 9.6 9.2 11.5C9.2 14.4 18.8 13.4 18.8 17.2C18.8 20.2 16.2 21.2 13.8 21.2C10.8 21.2 9 19.6 9 19.6"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-                {/* Right facet shadow */}
-                <path
-                  d="M14 24L10.5 6H17.5L14 24Z"
-                  fill="#EA580C"
-                />
-                {/* Inner center highlight */}
-                <path
-                  d="M14 24L10.5 6H14L14 24Z"
-                  fill="#FB923C"
-                  opacity="0.9"
-                />
+                <circle cx="18.5" cy="9.8" r="1.3" fill="#93C5FD" />
+                <defs>
+                  <linearGradient
+                    id="scrawlr-brand-grad"
+                    x1="2"
+                    y1="2"
+                    x2="26"
+                    y2="26"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#3B82F6" />
+                    <stop offset="1" stopColor="#1D4ED8" />
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
             <span className="font-sans font-bold text-xl text-neutral-900 tracking-tight">
-              Vertex
+              Scrawlr
             </span>
           </Link>
 
@@ -51,7 +57,7 @@ export function Header() {
               Courses
             </Link>
             <Link
-              href="/my-learning"
+              href="/learning"
               className="text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors"
             >
               My Learning

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Vertex Design System — v1.0
-   A unified design language for the Vertex learning platform.
+   Scrawlr Design System — v2.0
+   A unified design language for the Scrawlr learning platform.
    Clean, modern, focused on clarity, consistency, and intuitive learning.
    ========================================================================== */
 
@@ -14,12 +14,14 @@
    -------------------------------------------------------------------------- */
 
 @theme inline {
-  /* -- Colors: Primary (orange) ----------------------------------------- */
-  --color-primary-500: #F97316;
-  --color-primary-400: #FB923C;
-  --color-primary-300: #FDBA74;
-  --color-primary-200: #FED7AA;
-  --color-primary-100: #FFEEE5;
+  /* -- Colors: Primary (blue) ------------------------------------------- */
+  --color-primary-600: #1D4ED8;
+  --color-primary-500: #2563EB;
+  --color-primary-400: #60A5FA;
+  --color-primary-300: #93C5FD;
+  --color-primary-200: #BFDBFE;
+  --color-primary-100: #EFF6FF;
+  --color-primary-50:  #F0F7FF;
 
   /* -- Colors: Neutral -------------------------------------------------- */
   --color-neutral-900: #0F172A;
@@ -209,10 +211,10 @@ body {
     color: var(--color-white);
   }
   .btn-primary:hover {
-    background-color: #EA6A10;           /* slightly darker */
+    background-color: #1D4ED8;           /* slightly darker */
   }
   .btn-primary:active {
-    background-color: #D9600E;
+    background-color: #1E40AF;
   }
   .btn-primary:disabled,
   .btn-primary[aria-disabled="true"] {
@@ -265,7 +267,7 @@ body {
     padding: 0;
   }
   .btn-text:hover {
-    color: #EA6A10;
+    color: #1D4ED8;
   }
   .btn-text:disabled,
   .btn-text[aria-disabled="true"] {
@@ -296,7 +298,7 @@ body {
   .input:focus {
     outline: none;
     border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
   .input:disabled {
     background-color: var(--color-neutral-100);
@@ -327,7 +329,7 @@ body {
   .select:focus {
     outline: none;
     border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
 
   /* -- Badges / Tags ---------------------------------------------------- */
@@ -510,4 +512,32 @@ body {
   .pagination-item--active:hover {
     background-color: var(--color-neutral-900);
   }
+
+  /* -- Skeleton shimmer loading states ---------------------------------- */
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      #F1F5F9 0%,
+      #E2E8F0 50%,
+      #F1F5F9 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  /* Navigation progress bar glow */
+  .nav-progress-glow {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.7), 0 0 5px rgba(96, 165, 250, 0.9);
+  }
 }
+

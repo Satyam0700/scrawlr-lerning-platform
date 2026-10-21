@@ -6,8 +6,8 @@ import { CourseCard } from "@/app/components/CourseCard";
 import { NextjsIcon, DockerIcon, TypeScriptIcon } from "@/app/components/CourseIcons";
 
 export const metadata = {
-  title: "All Courses | Vertex",
-  description: "Browse all courses on Vertex learning platform.",
+  title: "All Courses | Scrawlr",
+  description: "Browse all courses on Scrawlr learning platform.",
 };
 
 export const instant = false;

@@ -20,7 +20,7 @@ export function SearchLessonCard({ item }: SearchLessonCardProps) {
         ];
 
   return (
-    <article className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300/90 shadow-xs hover:shadow-md transition-all duration-200 p-5 sm:p-6 flex flex-col md:flex-row gap-5 md:gap-6 items-stretch">
+    <article className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300/90 shadow-xs hover:shadow-md active:scale-[0.99] active:shadow-2xs transition-all duration-150 p-5 sm:p-6 flex flex-col md:flex-row gap-5 md:gap-6 items-stretch">
       {/* Left Column: Lesson Preview Panel */}
       <div className="w-full md:w-64 lg:w-72 bg-[#F9FAFB] rounded-xl border border-neutral-200/80 p-4 flex flex-col justify-between shrink-0">
         <div>

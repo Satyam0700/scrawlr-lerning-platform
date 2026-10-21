@@ -37,7 +37,7 @@ function getResourceIcon(type: string, title: string, url: string) {
 
   if (lowerTitle.includes("guide") || type === "article") {
     return (
-      <div className="w-10 h-10 rounded-lg bg-orange-50 border border-orange-100 flex items-center justify-center flex-shrink-0 text-primary-500">
+      <div className="w-10 h-10 rounded-lg bg-primary-50 border border-primary-200/50 flex items-center justify-center flex-shrink-0 text-primary-500">
         <BookOpen className="w-5 h-5" />
       </div>
     );

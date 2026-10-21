@@ -113,8 +113,8 @@ export function CourseCoverArtwork({
 }
 
 /**
- * High-fidelity Learning Outcome Icons matching vertex-course.png
- * (Clean 2px outlined orange terracotta icons)
+ * High-fidelity Learning Outcome Icons
+ * (Clean 2px outlined royal blue icons)
  */
 export function OutcomeIcon({ iconName }: { iconName?: string }) {
   const normalized = (iconName || "").toLowerCase();
@@ -127,7 +127,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        stroke="#EA580C"
+        stroke="#2563EB"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -153,7 +153,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        stroke="#EA580C"
+        stroke="#2563EB"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -179,7 +179,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        stroke="#EA580C"
+        stroke="#2563EB"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -210,7 +210,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        stroke="#EA580C"
+        stroke="#2563EB"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -229,7 +229,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
         height="40"
         viewBox="0 0 48 48"
         fill="none"
-        stroke="#EA580C"
+        stroke="#2563EB"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -247,7 +247,7 @@ export function OutcomeIcon({ iconName }: { iconName?: string }) {
       height="40"
       viewBox="0 0 48 48"
       fill="none"
-      stroke="#EA580C"
+      stroke="#2563EB"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

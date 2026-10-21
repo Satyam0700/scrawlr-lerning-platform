@@ -109,8 +109,8 @@ export function LessonContentTabs({
 
           {/* Pro Tip Card */}
           {tip && (
-            <section className="bg-[#FFF8F3] border border-[#FDE6D2] rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-2xs">
-              <div className="w-9 h-9 rounded-full bg-orange-100/80 flex items-center justify-center text-primary-500 flex-shrink-0">
+            <section className="bg-[#F0F7FF] border border-[#DBEAFE] rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-2xs">
+              <div className="w-9 h-9 rounded-full bg-primary-100 flex items-center justify-center text-primary-500 flex-shrink-0">
                 <Lightbulb className="w-5 h-5" />
               </div>
               <div className="flex-1 min-w-0">

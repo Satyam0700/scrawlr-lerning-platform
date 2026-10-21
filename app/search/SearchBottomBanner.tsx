@@ -4,9 +4,9 @@ import { Search, ArrowRight } from "lucide-react";
 
 export function SearchBottomBanner() {
   return (
-    <div className="bg-[#FFF8F5] border border-[#FFEDD5] rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs mt-8">
+    <div className="bg-[#F0F7FF] border border-[#DBEAFE] rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs mt-8">
       <div className="flex items-center gap-4">
-        {/* Orange Search Icon Badge */}
+        {/* Blue Search Icon Badge */}
         <div className="w-12 h-12 rounded-2xl bg-primary-100/70 border border-primary-200/50 flex items-center justify-center text-primary-500 shrink-0">
           <Search className="w-6 h-6 stroke-[2.2]" />
         </div>
