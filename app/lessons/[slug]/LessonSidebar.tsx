@@ -166,7 +166,7 @@ export function LessonSidebar({
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center justify-between gap-2.5 py-1.5 px-2 rounded-lg transition-colors group/item ${
                           isLessonActive
-                            ? "bg-orange-50/80 text-primary-500"
+                            ? "bg-primary-50 text-primary-500"
                             : "hover:bg-neutral-100/60 text-neutral-700"
                         }`}
                       >

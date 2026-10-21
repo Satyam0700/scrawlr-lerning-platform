@@ -18,8 +18,8 @@ export async function generateMetadata({
   const query = typeof rawQ === "string" && rawQ.trim() ? rawQ.trim() : "data fetching";
 
   return {
-    title: `Results for "${query}" | Vertex Search`,
-    description: `Found courses and video lessons matching "${query}" on Vertex.`,
+    title: `Results for "${query}" | Scrawlr Search`,
+    description: `Found courses and video lessons matching "${query}" on Scrawlr.`,
   };
 }
 

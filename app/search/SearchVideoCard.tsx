@@ -109,7 +109,7 @@ export function SearchVideoCard({ item }: SearchVideoCardProps) {
   };
 
   return (
-    <article className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300/90 shadow-xs hover:shadow-md transition-all duration-200 p-5 sm:p-6 flex flex-col md:flex-row gap-5 md:gap-6 items-stretch">
+    <article className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300/90 shadow-xs hover:shadow-md active:scale-[0.99] active:shadow-2xs transition-all duration-150 p-5 sm:p-6 flex flex-col md:flex-row gap-5 md:gap-6 items-stretch">
       {/* Left Column: Video Thumbnail */}
       <div className="relative w-full md:w-64 lg:w-72 aspect-video md:aspect-auto md:h-44 rounded-xl overflow-hidden shrink-0 border border-neutral-200/80 bg-neutral-900 group">
         <Link href={watchLink} className="block w-full h-full relative" aria-label={`Watch ${item.title}`}>
@@ -141,7 +141,7 @@ export function SearchVideoCard({ item }: SearchVideoCardProps) {
               </span>
             </div>
 
-            <span className="shrink-0 px-2 py-0.5 text-[11px] font-semibold tracking-wider uppercase text-orange-600 bg-orange-50 border border-orange-200/60 rounded">
+            <span className="shrink-0 px-2 py-0.5 text-[11px] font-semibold tracking-wider uppercase text-primary-600 bg-primary-50 border border-primary-200/60 rounded">
               VIDEO
             </span>
           </div>

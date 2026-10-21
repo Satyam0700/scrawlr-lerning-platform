@@ -1,7 +1,25 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, Search, Loader2 } from "lucide-react";
+import { triggerNavigationProgress } from "@/app/components/NavigationProgressBar";
 
 export function HeroSection() {
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = query.trim();
+    setIsSearching(true);
+    triggerNavigationProgress();
+    const destination = trimmed ? `/search?q=${encodeURIComponent(trimmed)}` : "/search";
+    router.push(destination);
+  };
+
   return (
     <section className="pt-14 pb-12 sm:pt-20 sm:pb-16 flex flex-col items-center text-center px-4">
       {/* Pill Badge */}
@@ -18,7 +36,7 @@ export function HeroSection() {
 
       {/* Subtitle */}
       <p className="font-sans text-neutral-500 text-base sm:text-lg leading-relaxed max-w-md mt-4">
-        Vertex understands what you want to learn and
+        Scrawlr understands what you want to learn and
         <br className="hidden sm:inline" />
         finds the exact lessons across all your courses.
       </p>
@@ -27,7 +45,7 @@ export function HeroSection() {
       <div className="mt-8">
         <Link
           href="/courses"
-          className="btn btn-primary h-11 px-6 rounded-md font-medium text-white shadow-sm inline-flex items-center gap-2 hover:bg-[#EA6A10] transition-colors"
+          className="btn btn-primary h-11 px-6 rounded-md font-medium text-white shadow-sm inline-flex items-center gap-2 hover:bg-[#1D4ED8] active:scale-[0.98] transition-all"
         >
           <span>Explore Courses</span>
           <ArrowRight className="w-4 h-4 ml-0.5" />
@@ -37,14 +55,19 @@ export function HeroSection() {
       {/* Search Input Bar */}
       <div className="w-full max-w-2xl mt-10">
         <form
-          action="/search"
-          method="GET"
+          onSubmit={handleSubmit}
           className="relative flex items-center w-full bg-white border border-neutral-200 rounded-xl px-4 h-14 shadow-sm hover:border-neutral-300 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-400/20 transition-all"
         >
-          <Search className="w-5 h-5 text-neutral-400 flex-shrink-0 mr-3" />
+          {isSearching ? (
+            <Loader2 className="w-5 h-5 text-primary-500 animate-spin flex-shrink-0 mr-3" />
+          ) : (
+            <Search className="w-5 h-5 text-neutral-400 flex-shrink-0 mr-3" />
+          )}
           <input
             type="text"
             name="q"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Ask anything about your learning..."
             className="w-full bg-transparent border-none text-neutral-900 placeholder:text-neutral-400 text-sm sm:text-base focus:outline-none"
           />

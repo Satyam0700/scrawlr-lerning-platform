@@ -45,12 +45,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!course) {
     return {
-      title: "Course Not Found | Vertex",
+      title: "Course Not Found | Scrawlr",
     };
   }
 
   return {
-    title: `${course.title} | Vertex`,
+    title: `${course.title} | Scrawlr`,
     description: course.summary,
   };
 }
@@ -158,7 +158,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
           <div className="lg:col-span-7 flex flex-col items-start">
             {/* Popular Badge */}
             {course.popular && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded bg-[#FFF2EB] text-primary-500 font-sans font-semibold text-[11px] tracking-wider uppercase mb-3">
+              <span className="inline-flex items-center px-2.5 py-1 rounded bg-primary-100/70 text-primary-600 border border-primary-200/60 font-sans font-semibold text-[11px] tracking-wider uppercase mb-3">
                 POPULAR
               </span>
             )}
@@ -229,7 +229,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
             <div className="flex items-center gap-4 mt-8 flex-wrap">
               <Link
                 href={firstLessonSlug ? `/lessons/${firstLessonSlug}` : "#"}
-                className="btn btn-primary h-12 px-6 rounded-xl font-medium text-sm flex items-center gap-2.5 shadow-sm hover:bg-[#EA6A10] transition-colors"
+                className="btn btn-primary h-12 px-6 rounded-xl font-medium text-sm flex items-center gap-2.5 shadow-sm hover:bg-primary-600 active:scale-[0.985] transition-all"
               >
                 <span>Continue Learning</span>
                 <ArrowRight className="w-4 h-4" />
@@ -237,7 +237,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
               <button
                 type="button"
-                className="btn bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-200/90 h-12 px-5 rounded-xl font-medium text-sm flex items-center gap-2 shadow-2xs hover:border-neutral-300 transition-colors"
+                className="btn bg-white hover:bg-neutral-50 active:scale-[0.985] text-neutral-800 border border-neutral-200/90 h-12 px-5 rounded-xl font-medium text-sm flex items-center gap-2 shadow-2xs hover:border-neutral-300 transition-all cursor-pointer"
               >
                 <Bookmark className="w-4 h-4 text-neutral-700 stroke-[1.8]" />
                 <span>Bookmark</span>

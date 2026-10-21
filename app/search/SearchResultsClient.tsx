@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Search, ChevronDown, Check } from "lucide-react";
+import { Search, ChevronDown, Check, Loader2 } from "lucide-react";
 import type { SearchResultItem } from "@/sanity/lib/types";
+import { triggerNavigationProgress } from "@/app/components/NavigationProgressBar";
 import { SearchVideoCard } from "./SearchVideoCard";
 import { SearchLessonCard } from "./SearchLessonCard";
 import { SearchBottomBanner } from "./SearchBottomBanner";
@@ -28,11 +29,11 @@ export function SearchResultsClient({
   const [query, setQuery] = useState(initialQuery);
   const [sort, setSort] = useState(initialSort || "most-relevant");
   const [isSortOpen, setIsSortOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState(initialResults);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
-
 
   // Global ⌘ K or Ctrl+K shortcut to focus search input
   useEffect(() => {
@@ -61,6 +62,9 @@ export function SearchResultsClient({
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = query.trim();
+    setIsSearching(true);
+    triggerNavigationProgress();
+
     if (!trimmed) {
       router.push(`/search?q=data+fetching&sort=${sort}`);
       return;
@@ -104,7 +108,11 @@ export function SearchResultsClient({
       {/* Search Bar Container */}
       <form onSubmit={handleSearchSubmit} className="w-full mb-8">
         <div className="relative flex items-center w-full bg-white border border-neutral-200/90 rounded-2xl px-5 h-14 sm:h-15 shadow-xs hover:border-neutral-300 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-400/20 transition-all">
-          <Search className="w-5 h-5 text-neutral-400 flex-shrink-0 mr-3.5 stroke-[2]" />
+          {isSearching ? (
+            <Loader2 className="w-5 h-5 text-primary-500 animate-spin flex-shrink-0 mr-3.5" />
+          ) : (
+            <Search className="w-5 h-5 text-neutral-400 flex-shrink-0 mr-3.5 stroke-[2]" />
+          )}
           <input
             ref={searchInputRef}
             type="text"

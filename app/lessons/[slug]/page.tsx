@@ -50,14 +50,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!lesson) {
     return {
-      title: "Lesson Not Found | Vertex",
+      title: "Lesson Not Found | Scrawlr",
     };
   }
 
-  const courseTitle = lesson.course?.title || "Vertex";
+  const courseTitle = lesson.course?.title || "Scrawlr";
   return {
     title: `${lesson.title} — ${courseTitle}`,
-    description: `Watch ${lesson.title} on Vertex.`,
+    description: `Watch ${lesson.title} on Scrawlr.`,
   };
 }
 
@@ -199,7 +199,7 @@ export default async function LessonPage({ params, searchParams }: PageProps) {
 
             {/* Lesson Badge & Header */}
             <div className="mb-6">
-              <span className="inline-block px-3 py-1 rounded-full bg-orange-100/90 text-primary-500 font-sans font-bold text-xs uppercase tracking-wider mb-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-primary-100/90 text-primary-500 font-sans font-bold text-xs uppercase tracking-wider mb-3">
                 Lesson {moduleNumber}.{lessonNumber}
               </span>
 
@@ -262,7 +262,7 @@ export default async function LessonPage({ params, searchParams }: PageProps) {
               {previousLesson ? (
                 <Link
                   href={`/lessons/${previousLesson.slug}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-5 py-3 rounded-xl border border-neutral-200/90 bg-white hover:bg-neutral-50 text-neutral-800 shadow-2xs hover:border-neutral-300 transition-all group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-5 py-3 rounded-xl border border-neutral-200/90 bg-white hover:bg-neutral-50 active:scale-[0.985] text-neutral-800 shadow-2xs hover:border-neutral-300 transition-all group"
                 >
                   <ArrowLeft className="w-4 h-4 text-neutral-500 group-hover:text-neutral-900 transition-colors" />
                   <div className="text-left">
@@ -281,7 +281,7 @@ export default async function LessonPage({ params, searchParams }: PageProps) {
               {nextLesson && (
                 <Link
                   href={`/lessons/${nextLesson.slug}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white shadow-sm hover:shadow-md transition-all group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 active:scale-[0.985] text-white shadow-sm hover:shadow-md transition-all group"
                 >
                   <div className="text-right">
                     <span className="text-[11px] text-white/80 block font-sans uppercase font-medium">

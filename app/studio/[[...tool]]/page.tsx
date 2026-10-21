@@ -1,7 +1,7 @@
 import { ExternalLink, Sparkles } from 'lucide-react'
 
 export const metadata = {
-  title: 'Vertex Studio — Standalone Workspace',
+  title: 'Scrawlr Studio — Standalone Workspace',
   description: 'Sanity Studio runs as a standalone Vite workspace on localhost:3333.',
 }
 
@@ -14,18 +14,18 @@ export default function StudioRedirectPage() {
         </div>
 
         <h1 className="text-2xl font-bold tracking-tight mb-2 font-display">
-          Vertex Studio
+          Scrawlr Studio
         </h1>
 
         <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-          Vertex Studio is configured as a standalone workspace running with Vite for high performance, independent deploys, and automated TypeGen.
+          Scrawlr Studio is configured as a standalone workspace running with Vite for high performance, independent deploys, and automated TypeGen.
         </p>
 
         <a
           href="http://localhost:3333"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-primary-500 hover:bg-[#EA6A10] text-white font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20"
+          className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-primary-500 hover:bg-[#1D4ED8] text-white font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20"
         >
           <span>Open Standalone Studio (Port 3333)</span>
           <ExternalLink className="w-4 h-4" />
